@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: cornsilk;
+  display: flex;
+  flex-direction: column;
+}
+
+body div {
+  outline: solid 1px black;
+  width: 100px;
+  height: 100px;
+}
+
+/* non relative url works */
+.red {
+  background-image: url(statics/red.png);
+}
+
+/* relative url works */
+.green {
+  background-image: url(./statics/green.png);
+}

@@ -1,0 +1,15 @@
+.unused {
+  /**
+   * this class is not being used in the project, so purgecss-webpack-plugin
+   * will eleminated it from the bundle's output when webpack run in production mode.
+  */
+  color: 'black';
+}
+
+.class-in-html {
+  /**
+   * this class name is being used in './demo-purge-css-(this-file-is-not-used).html', so
+   * purgecss-webpack-plugin will not eleminated it from the bundle's output.
+  */
+  color: 'black';
+}

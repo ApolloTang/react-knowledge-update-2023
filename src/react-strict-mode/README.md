@@ -1,6 +1,6 @@
 # Note Strict Mode
 
-If you are using a create-react-app, strict mode comes on default for the entire application. [3]
+If you are using a create-react-app, strict mode comes on default for the entire application. [Ref 2]
 
 
 

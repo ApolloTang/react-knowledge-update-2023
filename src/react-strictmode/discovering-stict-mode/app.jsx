@@ -1,51 +1,27 @@
 import React from "react";
+import {FnComponent as Component } from '~/component-fn'
+// import {ClassComponent as Component } from '~/component-class'
 
 const App = () => {
-  const [someState, setSomeState] = React.useState(1)
-  console.log(someState)
+  const [parentState, setParentState] = React.useState(1)
+
+  const clickHandler = () => {
+    console.log('----------- parrent clicked ------------', parentState)
+    setParentState((v) => ++v);
+  };
+
   return (
     <>
       <React.StrictMode>
-        <ClassComponent
-          key={someState+'class'}  /*  <--- this will force unmount */
-        />
-        <FnComponent
-          key={someState+'fn'}  /*  <--- this will force unmount */
-        />
-        <button onClick={()=>{ setSomeState(v => ++v) }}>
-          remount children {someState}
+        <button onClick={clickHandler}>
+          remount children {parentState}
         </button>
+        <Component
+          key={parentState}  /*  <--- this will force unmount */
+        />
       </React.StrictMode>
     </>
   )
 }
 
-class ClassComponent extends React.Component {
-  componentDidUpdate() {
-    console.log('class component did update')
-  }
-
-  componentDidMount() {
-    console.log('class component did mount')
-  }
-
-  componentWillUnmount() {
-    console.log('class component will unmount')
-  }
-
-  render() {
-    console.log('rendering class component')
-    return <h1>React Class Component</h1>
-  }
-}
-
-const FnComponent = () => {
-  React.useEffect(()=>{
-    console.log('function component did mount')
-    return () => {
-      console.log('function component did unmount')
-    }
-  }/* run after each render */)
-  return console.log('rendering function component') || <h1>React Fn Component</h1>
-}
 export {App}

@@ -4,7 +4,5 @@
 
 [How to Upgrade to React 18](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html)
 
-[(blog.logrocket.com) Using strict mode in React 18: A guide to its new behaviors](https://blog.logrocket.com/using-strict-mode-react-18-guide-new-behaviors)
-
 
 

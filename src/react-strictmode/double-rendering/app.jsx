@@ -6,7 +6,7 @@ const App = () => {
   const [parentState, setParentState] = React.useState(1)
 
   const clickHandler = () => {
-    console.log('----------- parrent clicked ------------', parentState)
+    console.log('----------- parent clicked ------------', parentState)
     setParentState((v) => ++v);
   };
 

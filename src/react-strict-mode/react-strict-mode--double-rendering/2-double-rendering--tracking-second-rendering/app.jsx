@@ -6,7 +6,7 @@ const App = () => {
   const [parentState, setParentState] = React.useState(1)
 
   const clickHandler = () => {
-    console.log('----------- parent clicked ------------', parentState)
+    console.log('----------- (parent component update state) -----------', parentState)
     setParentState((v) => ++v);
   };
 
@@ -14,7 +14,7 @@ const App = () => {
     <>
       <React.StrictMode>
         <button onClick={clickHandler}>
-          remount children {parentState}
+          Update parent state to remount children {parentState}
         </button>
         <Component
           key={parentState}  /*  <--- this will force unmount */

@@ -1,23 +1,14 @@
 import React from "react";
 
 function FnComponent() {
-  const mountCount = React.useRef(1)
-
   const [fnComponentState, setFnComponentState] = React.useState(1);
 
   React.useEffect(() => {
     console.log("function component did mount");
 
-    console.log('mountCount: ', mountCount.current)
-    if (mountCount.current === 1) {
       console.log('******** Run some effect *********')
-    }
-    if (mountCount.current === 2 || process.env.NODE_ENV !== 'development') {
-      console.log('******** Run some effect 2nd time *********')
-    }
 
     return () => {
-      mountCount.current++
       console.log("   function component did unmount");
     };
   }, []);
@@ -37,7 +28,7 @@ function FnComponent() {
   });
 
   const clickHandler = () => {
-    console.log('----------- clicked ------------')
+    console.log('----------- (child component update state) ------------')
     setFnComponentState((v) => ++v);
   };
 
@@ -46,7 +37,7 @@ function FnComponent() {
       <>
         <h1>React Fn Component</h1>
         <button onClick={clickHandler}>
-          Rerender Fn Component {fnComponentState}
+          Update state in child Component {fnComponentState}
         </button>
       </>
     )

@@ -26,9 +26,9 @@ function MyComponent({instanceLabel}) {
   }, []);
 
   React.useEffect(() => {
-    console.log("1, componentState change", Date.now());
+    console.log("componentState change", Date.now();
     return () => {
-      console.log("2,   componentState change cleanup", Date.now());
+      console.log("   componentState change cleanup", Date.now());
     };
   }, [componentState]);
 

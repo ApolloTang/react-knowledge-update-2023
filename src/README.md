@@ -4,5 +4,4 @@
 
 [How to Upgrade to React 18](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html)
 
-
-
+[React 18.2.0 change log](https://github.com/facebook/react/blob/main/CHANGELOG.md)

@@ -14,7 +14,6 @@ const App = () => {
 
   return (
     <>
-      <React.StrictMode>
         <button onClick={clickHandler}>
           Update parent state to remount children, parentState: {parentState}
         </button>
@@ -22,7 +21,6 @@ const App = () => {
           instanceLabel={"[child A]"}
           key={parentState}  /*  <--- this will force unmount */
         />
-      </React.StrictMode>
     </>
   )
 }

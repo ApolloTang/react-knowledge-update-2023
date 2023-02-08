@@ -1,14 +1,17 @@
 import React from "react";
 
-function FnComponent() {
+function ChildComponent() {
   const mountCount = React.useRef(1)
+  
+  const returnCount = React.useRef(1)
+  const renderCount = React.useRef(1)
 
-  const [fnComponentState, setFnComponentState] = React.useState(1);
+  const [childComponentState, setMyComponentState] = React.useState(1);
+  console.log(`childComponentState: ${childComponentState}`)
 
   React.useEffect(() => {
-    console.log("function component did mount");
-
-    console.log('mountCount: ', mountCount.current)
+    console.log(`effect: Child did mount (mountCount: ${mountCount.current})`);
+    
     if (mountCount.current === 1) {
       console.log('******** Run some effect *********')
     }
@@ -17,40 +20,42 @@ function FnComponent() {
     }
 
     return () => {
+      console.log(`effect: [cleanup] Child did unmount (mountCount: ${mountCount.current})`);
       mountCount.current++
-      console.log("   function component did unmount");
     };
   }, []);
 
-  React.useEffect(() => {
-    console.log("state change");
-    return () => {
-      console.log("   state change cleanup");
-    };
-  }, [fnComponentState]);
 
   React.useEffect(() => {
-    console.log("effect on each rendering");
+    console.log(`effect: Child each rendering, renderCount: ${renderCount.current}`);
     return () => {
-      console.log("   effect on each rendering cleanup");
+      console.log(`effect: [cleanup] Child each rendering, renderCount: ${renderCount.current}`);
+      renderCount.current++
     };
   });
 
+  React.useEffect(() => {
+    console.log(`effect: Child state change, childComponentState: ${childComponentState}`);
+    return () => {
+      console.log(`effect: [cleanup] Child state change, childComponentState: ${childComponentState}`);
+    };
+  }, [childComponentState]);
+
   const clickHandler = () => {
     console.log('----------- (child component update state) ------------')
-    setFnComponentState((v) => ++v);
+    setMyComponentState((v) => ++v);
   };
 
   return (
-    console.log("function component return") || (
+    console.log(`Child return, returnCount: ${returnCount.current++}`) || (
       <>
-        <h1>React Fn Component</h1>
+        <h1>React Child Component</h1>
         <button onClick={clickHandler}>
-          Update state in child Component {fnComponentState}
+          Update state in child Component, childComponentState: {childComponentState}
         </button>
       </>
     )
   );
 }
 
-export { FnComponent };
+export { ChildComponent };

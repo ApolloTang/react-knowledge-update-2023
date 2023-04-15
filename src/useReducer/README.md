@@ -1,4 +1,4 @@
-# useReducer
+# useReducer explained
 
 To explain `useReducer`,  let's review how `Array.prototype.reduce` works:
 
@@ -29,4 +29,4 @@ const MyReactComponent = () => {
 }
 ```
 
-With `Array.prototype.reduce` , the `reduce` method will iterate the array; however, `useReducer` requires you to call the `dispatchFunction` to calculate the next `accumlator`. By calling the `dispatchFunction`, `MyReactComponent` will run, which will `dispatchFunction` again. This cucursion ends when the length of `_data` is `0`. 
+With `Array.prototype.reduce` , the `reduce` method will iterate the array; however, `useReducer` requires you to call the `dispatchFunction` to calculate the next `accumlator`. By calling the `dispatchFunction`, `MyReactComponent` will run, which will execute the  `dispatchFunction` again. This cucursion ends when the length of `_data` is `0`. 

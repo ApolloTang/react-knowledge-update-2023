@@ -1,6 +1,6 @@
 # useReducer
 
-A review of how `Array.prototype.reduce` works:
+To explain `useReducer`,  let's review how `Array.prototype.reduce` works:
 
 ```js
 const data = [1,2,3,4,5]
@@ -15,7 +15,7 @@ const resultAfterReduce = Array.prototype.reduce.call(data, reducer, initialValu
 console.log(resultAfterReduce) // 15
 ```
 
-Basically `useReducer` is using the above idea. Let's see it in action:
+Basically, `useReducer` is using the above idea. Let's see it in action:
 
 ```js
 const _data = Array.from(data) // make a copy because we are going to mutate data
@@ -29,9 +29,4 @@ const MyReactComponent = () => {
 }
 ```
 
-
-
-With `Array.prototype.reduce` , the `reduce` method will iterate the array; however, `useReducer` require you to call the `dispatchFunction` to calculate the next `accumlator`. By calling the `dispatchFunction`, `MyReactComponent` will run which calling `dispatchFunction` again. This cucursion end when the length of `_data` is `0`. 
-
-
-
+With `Array.prototype.reduce` , the `reduce` method will iterate the array; however, `useReducer` requires you to call the `dispatchFunction` to calculate the next `accumlator`. By calling the `dispatchFunction`, `MyReactComponent` will run, which will `dispatchFunction` again. This cucursion ends when the length of `_data` is `0`. 

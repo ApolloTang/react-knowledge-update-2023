@@ -7,32 +7,33 @@ type definitions for `useReducer`:
 ```typescript
 type Dispatch<A> = (value: A) => void
 type Reducer<S, A> = (prevState: S, action: A) => S
-type ReducerState<R extends Reducer<any, any>> = R extends Reducer<infer S, any>
+
+type ReducerState<R extends Reducer<any, any>> 
+  = R extends Reducer<infer S, any> 
   ? S
   : never
-type ReducerAction<R extends Reducer<any, any>> = R extends Reducer<
-  any,
-  infer A
->
+
+type ReducerAction<R extends Reducer<any, any>> 
+  = R extends Reducer<any, infer A>
   ? A
   : never
 
 function useReducer<R extends Reducer<any, any>, I>(
-  reducer: R,
-  initializerArg: I & ReducerState<R>,
-  initializer: (arg: I & ReducerState<R>) => ReducerState<R>,
+  reducer        : R,
+  initializerArg : I & ReducerState<R>,
+  initializer    : (arg: I & ReducerState<R>) => ReducerState<R>,
 ): [ReducerState<R>, Dispatch<ReducerAction<R>>]
 
 function useReducer<R extends Reducer<any, any>, I>(
-  reducer: R,
-  initializerArg: I,
-  initializer: (arg: I) => ReducerState<R>,
+  reducer        : R,
+  initializerArg : I,
+  initializer    : (arg: I) => ReducerState<R>,
 ): [ReducerState<R>, Dispatch<ReducerAction<R>>]
 
 function useReducer<R extends Reducer<any, any>>(
-  reducer: R,
-  initialState: ReducerState<R>,
-  initializer?: undefined,
+  reducer      : R,
+  initialState : ReducerState<R>,
+  initializer? : undefined,
 ): [ReducerState<R>, Dispatch<ReducerAction<R>>]
 ```
 

@@ -1,4 +1,6 @@
-This is from [Kent's epic react](https://github.com/kentcdodds/advanced-react-hooks/blob/main/src/exercise/01.md#the-full-usereducer-api)
+---
+
+The following is from [Kent's epic react](https://github.com/kentcdodds/advanced-react-hooks/blob/main/src/exercise/01.md#the-full-usereducer-api)
 
 type definitions for `useReducer`:
 
@@ -37,3 +39,15 @@ function useReducer<R extends Reducer<any, any>>(
 ): [ReducerState<R>, Dispatch<ReducerAction<R>>]
 ```
 
+There are two things I don't understand:
+
+1. `I & ReducerState<R>` why use intersection? 
+2. `initializer?: undefined` , I think if a argment is optional it should not be undefined.
+
+
+
+---
+
+
+
+ [The bullet proof useReducer - Typescript (2/2) - DEV Community](https://dev.to/pffigueiredo/the-bullet-proof-usereducer-typescript-22-2kcj) 

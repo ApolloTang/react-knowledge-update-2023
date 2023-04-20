@@ -8,7 +8,7 @@ import {
 
 
 const ChildComponent = memo(
-  ({doSomething}) => <h3>{`Render xzxchild ${Date.now()}`}</h3>
+  ({doSomething}) => <h3>{`Render child ${Date.now()}`}</h3>
 );
 
 function App() {

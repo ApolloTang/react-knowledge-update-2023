@@ -17,12 +17,12 @@ function App() {
   const doSomething = useCallback(() => { /* do somthing implementation */ }, [])
 
   return (
-    <>
+    <React.StrictMode>
       <button onClick={()=>{setPropA(i=>++i)}}>
         {`render parent ${propA}`}
       </button>
       <ChildComponent doSomething={doSomething} />
-    </>
+    </React.StrictMode>
   );
 }
 

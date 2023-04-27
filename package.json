@@ -14,6 +14,7 @@
     "t": "jest --watchAll",
     "t:clearCache": "jest --clearCache",
     "t:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
+    "lint": "pnpm exec eslint"
   },
   "keywords": [],
   "author": "Apollo Tang",

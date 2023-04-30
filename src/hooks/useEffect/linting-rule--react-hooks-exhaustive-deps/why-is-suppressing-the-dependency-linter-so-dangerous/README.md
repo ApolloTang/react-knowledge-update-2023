@@ -1,0 +1,1 @@
+This is from [Why is suppressing the dependency linter so dangerous](https://react.dev/learn/removing-effect-dependencies#why-is-suppressing-the-dependency-linter-so-dangerous)

@@ -49,7 +49,7 @@ function App() {
 }
 ```
 
-With this the value of `count` and `increment` will be that of the first render (because dependency array of useEffect is empty).
+With this, the value of `count` and `increment` will be that of the first render (because dependency array of useEffect is empty).
 
 We could improve `file: 1-bug/app.jsx` with:
 
@@ -82,9 +82,9 @@ function App() {
 }
 ```
 
-With this, the counter is now counting, but increment functionality is still not working because the value of `increment` if from that of the frist render.
+With this, the counter is now counting, but increment functionality is still not working because the value of `increment` is from that of the first render.
 
-To fix this we tell useEffect to run its callback when enver  `increment` has change:
+To fix this we tell useEffect to run its callback whenever  `increment` changed:
 
 ```jsx
 // file: 3a-fix1/app.jsx
@@ -99,7 +99,7 @@ function App() {
       const id = setInterval(onTick, 1000);
       return () => clearInterval(id);
     },
-    [increment]  // <--- run this callback when enver `increment` has change
+    [increment]  // <--- run the callback whenever `increment` changed
   );
  
   return (/* code not shown */)
@@ -134,5 +134,5 @@ function App() {
 }
 ```
 
-This solution utilize `useCallback` to bust caching of `onTick` function when ever the value of `increment` change, which tell useEffect to rerun its callback with new value of `count` and `increment`.
+This solution utilize `useCallback` to bust caching of `onTick` function when ever the value of `increment` change, which tell useEffect to rerun its callback.
 

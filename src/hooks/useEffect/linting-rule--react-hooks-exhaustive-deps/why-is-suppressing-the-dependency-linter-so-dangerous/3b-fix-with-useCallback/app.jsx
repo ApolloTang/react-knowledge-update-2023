@@ -1,19 +1,22 @@
 import React from "react";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-export default function App() {
+function App() {
   const [count, setCount] = useState(0);
   const [increment, setIncrement] = useState(1);
 
+  const onTick = useCallback(
+    () => setCount(count => count + increment),
+    [increment]
+  )
 
-  useEffect(() => {
-    const onTick = () => {
-      setCount(count => count + increment);
-    }
-    const id = setInterval(onTick, 1000);
-    return () => clearInterval(id);
-    // xxx eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [increment]);
+  useEffect(
+    () => {
+      const id = setInterval(onTick, 1000);
+      return () => clearInterval(id);
+    },
+    [onTick]
+  );
 
   return (
     <React.StrictMode>
@@ -35,6 +38,7 @@ export default function App() {
     </React.StrictMode>
   );
 }
+
 
 
 export {App}

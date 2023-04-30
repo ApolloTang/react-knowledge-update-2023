@@ -1,21 +1,21 @@
 import React from "react";
-
-
 import { useState, useEffect } from 'react';
 
-export default function App() {
+function App() {
   const [count, setCount] = useState(0);
   const [increment, setIncrement] = useState(1);
 
-  function onTick() {
-	setCount(count + increment);
-  }
+  // const onTick = () => setCount(count + increment);
 
-  useEffect(() => {
-    const id = setInterval(onTick, 1000);
-    return () => clearInterval(id);
+  useEffect(
+    () => {
+      const onTick = () => setCount(count + increment);  // <--- here
+      const id = setInterval(onTick, 1000);
+      return () => clearInterval(id);
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    []
+  );
 
   return (
     <React.StrictMode>

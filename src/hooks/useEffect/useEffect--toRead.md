@@ -8,7 +8,7 @@
 
  [Hooks FAQ – React (lagacy)](https://legacy.reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) 
 
-
+https://epicreact.dev/myths-about-useeffect/
 
 
 
